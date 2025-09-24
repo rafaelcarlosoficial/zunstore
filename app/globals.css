@@ -1,4 +1,4 @@
-@import 'tailwindcss';npm install tailwindcss @tailwindcss/postcss postcss
+@import 'tailwindcss';
 @plugin "daisyui";
 
 :root {
