@@ -4,41 +4,50 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <footer>
-      <div>
+    <footer className="flex gap-[35px] flex-col items-center justify-center bg-lightBlack text-white py-10 px-5">
+      <div className="flex">
         <Link href="/">
           <Image
             src="/assets/pay-method/applePay.svg"
-            alt="Zunstore Logo"
-            width={100}
-            height={24}
+            alt="Apple Pay"
+            width={49}
+            height={28}
           />
         </Link>
         <Link href="/">
           <Image
             src="/assets/pay-method/googlePay.svg"
-            alt="Zunstore Logo"
-            width={100}
-            height={24}
+            alt="Google Pay"
+            width={49}
+            height={28}
           />
         </Link>
         <Link href="/">
           <Image
             src="/assets/pay-method/Mastercard.svg"
-            alt="Zunstore Logo"
-            width={100}
-            height={24}
+            alt="Mastercard"
+            width={49}
+            height={28}
           />
         </Link>
         <Link href="/">
           <Image
             src="/assets/pay-method/visa.svg"
-            alt="Zunstore Logo"
-            width={100}
-            height={24}
+            alt="Visa"
+            width={49}
+            height={28}
+          />
+        </Link>
+        <Link href="/">
+          <Image
+            src="/assets/pay-method/Paypal.svg"
+            alt="PayPal"
+            width={49}
+            height={28}
           />
         </Link>
       </div>
+
       <Link href="/">
         <Image
           src={'/assets/WhiteZunStore.svg'}
@@ -47,12 +56,15 @@ const Footer = () => {
           height={104}
         />
       </Link>
-      <p>
-        Zunstore, onde tecnologia e estilo se encontram. Conecte-se ao novo som
-        da sua vida
+      <p className="items-center text-center leading-[25px]">
+        <strong className="opacity-100 text-orangeDefault">Zunstore </strong>
+        <span className="opacity-70">
+          onde tecnologia e estilo se <br /> encontram. Conecte-se ao novo som
+          da <br /> sua vida
+        </span>
       </p>
       <div>
-        <ul>
+        <ul className="flex gap-[25px]">
           <li>
             <Link href="/">
               <Image
@@ -95,7 +107,12 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <p>© 2025 Zunstore. Todos os direitos reservados.</p>
+      <p
+        className="text-[14
+      px] text-center"
+      >
+        © 2025 Zunstore. Todos os direitos reservados.
+      </p>
     </footer>
   )
 }
