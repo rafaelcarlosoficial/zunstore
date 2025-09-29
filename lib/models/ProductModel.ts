@@ -5,6 +5,7 @@ export type Product = {
   image: string
   banner?: string
   price: number
+  installments: number
   brand: string
   //Is category necessary here?
   category?: string

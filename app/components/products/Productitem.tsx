@@ -4,7 +4,12 @@ import Link from 'next/link'
 import Image from 'next/image'
 export default function Productitem({ product }: { product: Product }) {
   return (
-    <div className="card bg-white mb-4 rounded-none shadow-[6px_11px_54.42px_rgba(0,0,0,0.25)]">
+    <div className="card bg-white mb-4 rounded-none shadow-[6px_11px_54.42px_rgba(0,0,0,0.25)] flex flex-col items-center pt-6 pb-2">
+      <Link href={`/product/${product.slug}`}>
+        <h2 className="card-title font-semibold text-black text-center text-xl">
+          {product.name}
+        </h2>
+      </Link>
       <figure>
         <Link href={`/product/${product.slug}`}>
           <Image
@@ -16,14 +21,22 @@ export default function Productitem({ product }: { product: Product }) {
           />
         </Link>
       </figure>
-      <div className="card-body">
-        <Link href={`/product/${product.slug}`}>
-          <h2 className="card-title font-normal text-black">{product.name}</h2>
-        </Link>
-        <p className="mb-2 text-black">{product.brand}</p>
-        <div className="card-actions flex items-center justify-between">
-          <span className="text-2xl text-black">{product.price}</span>
+      <div className="card-body flex flex-col items-center">
+        <div className="card-actions flex flex-col items-center justify-between w-full">
+          <p className="text-4xl text-greenLight font-semibold text-center w-full max-w-xs">
+            R$ {product.price}
+          </p>
+          <span className=" text-cent text-black">à vista </span>
+          <span className="text-xl text-black text-center w-full max-w-xs ">
+            ou em {product.installments}X no cartão
+          </span>
         </div>
+        <button
+          className="size-min bg-orangeDefault text-white text-base
+ font-semibold rounded-[30px] hover:bg-green-700 py-[15px] px-[100px]"
+        >
+          Comprar
+        </button>
       </div>
     </div>
   )

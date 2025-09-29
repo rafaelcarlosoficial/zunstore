@@ -5,6 +5,7 @@ const data = {
       slug: 'auricular',
       image: '/assets/headphones/headphone1/headphone1.png', // 679px × 829px
       price: 199.9,
+      installments: 3,
       brand: 'Sony',
       rating: 4.5,
       numReviews: 120,
@@ -16,6 +17,7 @@ const data = {
       slug: 'kidsazul',
       image: '/assets/headphones/headphone2/headphone2.jpg', // 679px × 829px
       price: 149.9,
+      installments: 4,
       brand: 'Philips',
       rating: 4.6,
       numReviews: 65,
@@ -27,6 +29,7 @@ const data = {
       slug: 'gopreto',
       image: '/assets/headphones/headphone3/headphone3.jpg', // 679px × 829px
       price: 199.9,
+      installments: 2,
       brand: 'Philips',
       rating: 4.3,
       numReviews: 85,

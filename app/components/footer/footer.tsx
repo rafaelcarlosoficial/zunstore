@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <footer className="flex gap-[35px] flex-col items-center justify-center bg-lightBlack text-white py-10 px-5">
+    <footer className="flex gap-[30px] flex-col items-center justify-center bg-lightBlack text-white py-10 px-5">
       <div className="flex">
         <Link href="/">
           <Image
@@ -52,8 +52,8 @@ const Footer = () => {
         <Image
           src={'/assets/WhiteZunStore.svg'}
           alt="Zunstore Logo"
-          width={357}
-          height={104}
+          width={250}
+          height={73}
         />
       </Link>
       <p className="items-center text-center leading-[25px]">
@@ -70,8 +70,8 @@ const Footer = () => {
               <Image
                 src="assets/Social Media/Twitter.svg"
                 alt="Twitter"
-                width={60}
-                height={60}
+                width={48}
+                height={48}
               />
             </Link>
           </li>
@@ -80,8 +80,8 @@ const Footer = () => {
               <Image
                 src="assets/Social Media/Facebook.svg"
                 alt="Facebook"
-                width={60}
-                height={60}
+                width={48}
+                height={48}
               />
             </Link>
           </li>
@@ -90,8 +90,8 @@ const Footer = () => {
               <Image
                 src="assets/Social Media/Instagram.svg"
                 alt="Instagram"
-                width={60}
-                height={60}
+                width={48}
+                height={48}
               />
             </Link>
           </li>
@@ -100,17 +100,14 @@ const Footer = () => {
               <Image
                 src="assets/Social Media/github.svg"
                 alt="GitHub"
-                width={60}
-                height={60}
+                width={48}
+                height={48}
               />
             </Link>
           </li>
         </ul>
       </div>
-      <p
-        className="text-[14
-      px] text-center"
-      >
+      <p className="text-xs text-center">
         © 2025 Zunstore. Todos os direitos reservados.
       </p>
     </footer>
