@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 export default function Productitem({ product }: { product: Product }) {
   return (
-    <div className="card bg-base-300 shadow-xl mb-4">
+    <div className="card bg-white mb-4 rounded-none shadow-[6px_11px_54.42px_rgba(0,0,0,0.25)]">
       <figure>
         <Link href={`/product/${product.slug}`}>
           <Image
@@ -18,11 +18,11 @@ export default function Productitem({ product }: { product: Product }) {
       </figure>
       <div className="card-body">
         <Link href={`/product/${product.slug}`}>
-          <h2 className="card-title font-normal">{product.name}</h2>
+          <h2 className="card-title font-normal text-black">{product.name}</h2>
         </Link>
-        <p className="mb-2">{product.brand}</p>
+        <p className="mb-2 text-black">{product.brand}</p>
         <div className="card-actions flex items-center justify-between">
-          <span className="text-2xl">{product.price}</span>
+          <span className="text-2xl text-black">{product.price}</span>
         </div>
       </div>
     </div>
