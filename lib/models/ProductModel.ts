@@ -1,13 +1,13 @@
 export type Product = {
-  _id: string
+  _id?: string
   name: string
   slug: string
   image: string
-  banner: string
-  price: string
+  banner?: string
+  price: number
   brand: string
   //Is category necessary here?
-  category: string
+  category?: string
   rating: number
   numReviews: number
   countInStock: number
