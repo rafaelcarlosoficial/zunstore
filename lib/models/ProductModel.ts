@@ -6,6 +6,7 @@ export type Product = {
   image2: string
   image3: string
   image4: string
+  discount: number
   banner?: string
   price: number
   installments: number

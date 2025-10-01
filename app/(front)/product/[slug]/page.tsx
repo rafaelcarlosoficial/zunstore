@@ -12,30 +12,71 @@ export default async function ProductDetails({
     return <div>Product not found</div>
   }
   return (
-    <>
+    <div className="my-16">
       <div className="my-2">
         <Link href="/">
           <span className="text-black">back to products</span>
         </Link>
       </div>
 
-      <div className="flex ">
+      <div className="flex justify-around ">
         <div>
           <div>
             <div>
               <Image
                 src={product.image}
                 alt={product.name}
-                width={580}
-                height={580}
+                width={500}
+                height={500}
               />
             </div>
-            <div>{/* imagens aqui */}</div>
+            <div className="flex gap-2 align-center justify-center">
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={100}
+                height={100}
+                style={{
+                  border: '2px solid #626262',
+                  borderRadius: '13px',
+                }}
+              />
+              <Image
+                src={product.image2}
+                alt={product.name}
+                width={100}
+                height={100}
+                style={{
+                  border: '2px solid #626262',
+                  borderRadius: '13px',
+                }}
+              />
+              <Image
+                src={product.image3}
+                alt={product.name}
+                width={100}
+                height={100}
+                style={{
+                  border: '2px solid #626262',
+                  borderRadius: '13px',
+                }}
+              />
+              <Image
+                src={product.image4}
+                alt={product.name}
+                width={100}
+                height={100}
+                style={{
+                  border: '2px solid #626262',
+                  borderRadius: '13px',
+                }}
+              />
+            </div>
           </div>
         </div>
-        <div>
+        <div className="flex flex-col gap-6 justify-center align-center pb-14">
           <div>{/* stars here */}</div>
-          <div>
+          <div className="flex flex-col gap-5">
             <h2 className="text-black font-semibold text-4xl">
               {product.name}
             </h2>
@@ -54,9 +95,9 @@ export default async function ProductDetails({
               </p>
             </div>
           </div>
-          <div>
+          <div className="flex flex-col gap-3">
             <p className="text-black">
-              <span className="font-semibold">${product.price}</span> em até{' '}
+              <span className="font-semibold">R${product.price}</span> em até{' '}
               <span className="font-semibold">
                 {product.installments}X de{' '}
                 {product.price / product.installments}
@@ -66,7 +107,12 @@ export default async function ProductDetails({
             <p className="text-black text-5xl font-semibold">
               R${product.price}
             </p>
-            <p className="text-black">À vista com {}%desconto</p>
+            <p className="text-black font-semibold">
+              À vista com{' '}
+              <span className="text-green-600">
+                {product.discount}%desconto
+              </span>
+            </p>
           </div>
           <div className="flex gap-4">
             <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent">
@@ -78,6 +124,6 @@ export default async function ProductDetails({
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

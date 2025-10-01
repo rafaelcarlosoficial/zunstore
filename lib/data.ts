@@ -3,7 +3,11 @@ const data = {
     {
       name: 'Sony Auricular Bluetooth Roxo',
       slug: 'auricular',
-      image: '/assets/headphones/headphone1/headphone1.png', // 679px × 829px
+      image: '/assets/headphones/headphone1/headphone1.png',
+      image2: '/assets/headphones/headphone1/headphone2.png',
+      image3: '/assets/headphones/headphone1/headphone3.png',
+      image4: '/assets/headphones/headphone1/headphone4.png',
+      discount: 15,
       price: 199.9,
       installments: 3,
       brand: 'Sony',
@@ -15,7 +19,11 @@ const data = {
     {
       name: 'Philips Kids 330 Azul',
       slug: 'kidsazul',
-      image: '/assets/headphones/headphone2/headphone1.jpg', // 679px × 829px
+      image: '/assets/headphones/headphone2/headphone1.jpg',
+      image2: '/assets/headphones/headphone2/headphone2.jpg',
+      image3: '/assets/headphones/headphone2/headphone3.jpg',
+      image4: '/assets/headphones/headphone2/headphone4.jpg',
+      discount: 10,
       price: 149.9,
       installments: 4,
       brand: 'Philips',
@@ -27,7 +35,11 @@ const data = {
     {
       name: 'Philips AirPods Go Preto',
       slug: 'gopreto',
-      image: '/assets/headphones/headphone3/headphone1.jpg', // 679px × 829px
+      image: '/assets/headphones/headphone3/headphone1.jpg',
+      image2: '/assets/headphones/headphone3/headphone2.jpg',
+      image3: '/assets/headphones/headphone3/headphone3.jpg',
+      image4: '/assets/headphones/headphone3/headphone4.jpg',
+      discount: 5,
       price: 199.9,
       installments: 2,
       brand: 'Philips',
