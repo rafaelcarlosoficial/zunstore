@@ -15,7 +15,7 @@ const data = {
     {
       name: 'Philips Kids 330 Azul',
       slug: 'kidsazul',
-      image: '/assets/headphones/headphone2/headphone2.jpg', // 679px × 829px
+      image: '/assets/headphones/headphone2/headphone1.jpg', // 679px × 829px
       price: 149.9,
       installments: 4,
       brand: 'Philips',
@@ -27,7 +27,7 @@ const data = {
     {
       name: 'Philips AirPods Go Preto',
       slug: 'gopreto',
-      image: '/assets/headphones/headphone3/headphone3.jpg', // 679px × 829px
+      image: '/assets/headphones/headphone3/headphone1.jpg', // 679px × 829px
       price: 199.9,
       installments: 2,
       brand: 'Philips',

@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-[0_16px_33px_rgba(0,0,0,0.25)]">
+    <header className="bg-white shadow-xl/20">
       <nav className="px-11">
         <div className="navbar flex justify-between">
           <Link href="/">

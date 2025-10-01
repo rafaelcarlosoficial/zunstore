@@ -4,7 +4,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 export default function Productitem({ product }: { product: Product }) {
   return (
-    <div className="card bg-white mb-4 rounded-none shadow-[6px_11px_54.42px_rgba(0,0,0,0.25)] flex flex-col items-center pt-6 pb-2">
+    <div
+      className="card bg-white mb-4 rounded-none shadow-xl/20
+
+ flex flex-col items-center pt-6 pb-2"
+    >
       <Link href={`/product/${product.slug}`}>
         <h2 className="card-title font-semibold text-black text-center text-xl">
           {product.name}
@@ -26,7 +30,12 @@ export default function Productitem({ product }: { product: Product }) {
           <p className="text-4xl text-greenLight font-semibold text-center w-full max-w-xs">
             R$ {product.price}
           </p>
-          <span className=" text-cent text-black">à vista </span>
+          <span
+            className=" text-cent text-black text-base
+"
+          >
+            à vista{' '}
+          </span>
           <span className="text-xl text-black text-center w-full max-w-xs ">
             ou em {product.installments}X no cartão
           </span>

@@ -3,6 +3,9 @@ export type Product = {
   name: string
   slug: string
   image: string
+  image2: string
+  image3: string
+  image4: string
   banner?: string
   price: number
   installments: number
