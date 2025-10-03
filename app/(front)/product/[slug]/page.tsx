@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import data from '@/lib/data'
-
+import ImageDetails from './imageDetails'
 export default async function ProductDetails({
   params,
 }: {
@@ -11,6 +11,7 @@ export default async function ProductDetails({
   if (!product) {
     return <div>Product not found</div>
   }
+
   return (
     <div className="my-16">
       <div className="my-2">
@@ -22,7 +23,8 @@ export default async function ProductDetails({
       <div className="flex justify-around ">
         <div>
           <div>
-            <div>
+            <ImageDetails product={product} />
+            {/* <div>
               <Image
                 src={product.image}
                 alt={product.name}
@@ -71,7 +73,7 @@ export default async function ProductDetails({
                   borderRadius: '13px',
                 }}
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex flex-col gap-6 justify-center align-center pb-14">
