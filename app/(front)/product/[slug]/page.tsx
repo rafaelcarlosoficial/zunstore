@@ -20,9 +20,9 @@ export default async function ProductDetails({
         </Link>
       </div>
 
-      <div className="flex justify-around ">
+      <div className="flex flex-col justify-around lg:flex-row ">
         <div>
-          <div>
+          <div className="lg: flex items-center align-center justify-center">
             <ImageDetails product={product} />
             {/* <div>
               <Image
@@ -76,7 +76,7 @@ export default async function ProductDetails({
             </div> */}
           </div>
         </div>
-        <div className="flex flex-col gap-6 justify-center align-center pb-14">
+        <div className="flex flex-col gap-6 justify-center align-center pb-14 sm: items-center">
           <div>{/* stars here */}</div>
           <div className="flex flex-col gap-5">
             <h2 className="text-black font-semibold text-4xl">
@@ -116,11 +116,11 @@ export default async function ProductDetails({
               </span>
             </p>
           </div>
-          <div className="flex gap-4">
-            <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent">
+          <div className="flex  flex-col gap-4 xs:w-full">
+            <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent gap-4 xs:px-[10px]">
               <span> -</span> <span>1</span> <span>+</span>
             </button>
-            <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl">
+            <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl max-w-[768px]:px-20 py-3 xs:w-full">
               Comprar
             </button>
           </div>

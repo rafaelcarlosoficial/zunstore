@@ -7,7 +7,7 @@ export default function Productitem({ product }: { product: Product }) {
     <div
       className="card bg-white mb-4 rounded-none shadow-xl/20
 
- flex flex-col items-center pt-6 pb-2"
+ flex flex-col items-center justify-center pt-6 pb-2"
     >
       <Link href={`/product/${product.slug}`}>
         <h2 className="card-title font-semibold text-black text-center text-xl">
@@ -25,7 +25,7 @@ export default function Productitem({ product }: { product: Product }) {
           />
         </Link>
       </figure>
-      <div className="card-body flex flex-col items-center">
+      <div className="card-body flex flex-col items-center w-full">
         <div className="card-actions flex flex-col items-center justify-between w-full">
           <p className="text-4xl text-greenLight font-semibold text-center w-full max-w-xs">
             R$ {product.price}
@@ -42,7 +42,7 @@ export default function Productitem({ product }: { product: Product }) {
         </div>
         <button
           className="size-min bg-orangeDefault text-white text-base
- font-semibold rounded-[30px] hover:bg-green-700 py-[15px] px-[100px]"
+ font-semibold rounded-[30px] hover:bg-green-700 py-5 px-14  w-full"
         >
           Comprar
         </button>
