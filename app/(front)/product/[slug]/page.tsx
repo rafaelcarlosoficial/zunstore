@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import data from '@/lib/data'
 import ImageDetails from './imageDetails'
+import AddToCart from '@/app/components/products/AddToCart'
 export default async function ProductDetails({
   params,
 }: {
@@ -123,6 +124,11 @@ export default async function ProductDetails({
             <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl max-w-[768px]:px-20 py-3 xs:w-full">
               Comprar
             </button>
+            {product.countInStock !== 0 && (
+              <div className="card-actions justify-center">
+                <AddToCart item={{ ...product, qty: 0 }} />
+              </div>
+            )}
           </div>
         </div>
       </div>

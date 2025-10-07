@@ -2,6 +2,8 @@ import { Product } from '@/lib/models/ProductModel'
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import AddToCart from './AddToCart'
+
 export default function Productitem({ product }: { product: Product }) {
   return (
     <div
@@ -46,6 +48,11 @@ export default function Productitem({ product }: { product: Product }) {
         >
           Comprar
         </button>
+        {/* {product.countInStock !== 0 && (
+          <div className="card-actions justify-center">
+            <AddToCart item={{ ...product, qty: 0 }} />
+          </div>
+        )} */}
       </div>
     </div>
   )
