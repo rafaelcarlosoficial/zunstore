@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 export default function AddToCart({ item }: { item: OrderItem }) {
   const router = useRouter()
-  const { items, increase } = useCartService()
+  const { items, increase, decrease } = useCartService()
   const [existItem, setExistItem] = useState<OrderItem | undefined>()
   useEffect(() => {
     setExistItem(items.find((x) => x.slug === item.slug))
@@ -18,15 +18,21 @@ export default function AddToCart({ item }: { item: OrderItem }) {
 
   return existItem ? (
     <div>
-      <button className="btn" type="button">
+      <button
+        className="btn text-white"
+        type="button"
+        onClick={() => decrease(existItem)}
+      >
         -
       </button>
-      <span className="px-2">{existItem.qty}</span>
+      <span className="px-2 text-black">{existItem.qty}</span>
       <button
-        className="btn"
+        className="btn text-white"
         type="button"
         onClick={() => increase(existItem)}
-      ></button>
+      >
+        +
+      </button>
     </div>
   ) : (
     <button

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-
+import Menu from './Menu'
 const Header = () => {
   return (
     <header className="bg-white shadow-xl/20">
@@ -37,6 +37,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
+          <Menu />
         </div>
       </nav>
     </header>
