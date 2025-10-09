@@ -3,6 +3,7 @@ import Link from 'next/link'
 import data from '@/lib/data'
 import ImageDetails from './imageDetails'
 import AddToCart from '@/app/components/products/AddToCart'
+import { round2 } from '@/lib/utils'
 export default async function ProductDetails({
   params,
 }: {
@@ -103,7 +104,7 @@ export default async function ProductDetails({
               <span className="font-semibold">R${product.price}</span> em até{' '}
               <span className="font-semibold">
                 {product.installments}X de{' '}
-                {product.price / product.installments}
+                {round2(product.price / product.installments)}
               </span>{' '}
               sem juros no cartão
             </p>
@@ -118,17 +119,17 @@ export default async function ProductDetails({
             </p>
           </div>
           <div className="flex  flex-col gap-4 xs:w-full">
-            <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent gap-4 xs:px-[10px]">
-              <span> -</span> <span>1</span> <span>+</span>
-            </button>
-            <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl max-w-[768px]:px-20 py-3 xs:w-full">
-              Comprar
-            </button>
             {product.countInStock !== 0 && (
               <div className="card-actions justify-center">
                 <AddToCart item={{ ...product, qty: 0 }} />
               </div>
             )}
+            {/* <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent gap-4 xs:px-[10px]">
+              <span> -</span> <span>1</span> <span>+</span>
+            </button> */}
+            <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl max-w-[768px]:px-20 py-3 xs:w-full">
+              Comprar
+            </button>
           </div>
         </div>
       </div>

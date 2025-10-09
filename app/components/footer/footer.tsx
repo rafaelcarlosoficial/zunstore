@@ -68,7 +68,7 @@ const Footer = () => {
           <li>
             <Link href="/">
               <Image
-                src="assets/socialMedia/Twitter.svg"
+                src="/assets/socialMedia/Twitter.svg"
                 alt="Twitter"
                 width={48}
                 height={48}
@@ -78,7 +78,7 @@ const Footer = () => {
           <li>
             <Link href="/">
               <Image
-                src="assets/socialMedia/Facebook.svg"
+                src="/assets/socialMedia/Facebook.svg"
                 alt="Facebook"
                 width={48}
                 height={48}
@@ -88,7 +88,7 @@ const Footer = () => {
           <li>
             <Link href="/">
               <Image
-                src="assets/socialMedia/Instagram.svg"
+                src="/assets/socialMedia/Instagram.svg"
                 alt="Instagram"
                 width={48}
                 height={48}
@@ -98,7 +98,7 @@ const Footer = () => {
           <li>
             <Link href="/">
               <Image
-                src="assets/socialMedia/github.svg"
+                src="/assets/socialMedia/github.svg"
                 alt="GitHub"
                 width={48}
                 height={48}

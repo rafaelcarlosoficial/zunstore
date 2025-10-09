@@ -1,9 +1,8 @@
 import { create } from 'zustand'
 import { round2 } from '../utils'
 import { OrderItem } from '../models/OrderModel'
-//o que faz o zustand?
-//ara que serve o initialState?
-//qual a função da osutros funções, e qual funcionalidade desse hook? why the name is hook/ UseCartStore?
+import { persist } from 'zustand/middleware'
+
 type Cart = {
   items: OrderItem[]
   itemsPrice: number
@@ -20,7 +19,11 @@ const initialState: Cart = {
   totalPrice: 0,
 }
 
-export const cartStore = create<Cart>(() => initialState)
+export const cartStore = create<Cart>()(
+  persist(() => initialState, {
+    name: 'cartStore',
+  })
+)
 
 export default function useCartStore() {
   const { items, itemsPrice, shippingPrice, taxPrice, totalPrice } = cartStore()
