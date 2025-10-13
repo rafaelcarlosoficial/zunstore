@@ -33,15 +33,34 @@ export default function useCartStore() {
     taxPrice,
     shippingPrice,
     totalPrice,
-    increase: (item: OrderItem) => {
+    // increase: (item: OrderItem) => {
+    //   const exist = items.find((x) => x.slug === item.slug)
+    //   const updatedCartItems = exist
+    //     ? items.map((x) =>
+    //         x.slug === item.slug ? { ...exist, qty: exist.qty + 1 } : x
+    //       )
+    //     : [...items, { ...item, qty: 1 }]
+    //   const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
+    //     calcPrice(updatedCartItems)
+    //   cartStore.setState({
+    //     items: updatedCartItems,
+    //     itemsPrice,
+    //     shippingPrice,
+    //     taxPrice,
+    //     totalPrice,
+    //   })
+    // },
+    increase: (item: OrderItem, qty: number = 1) => {
       const exist = items.find((x) => x.slug === item.slug)
       const updatedCartItems = exist
         ? items.map((x) =>
-            x.slug === item.slug ? { ...exist, qty: exist.qty + 1 } : x
+            x.slug === item.slug ? { ...exist, qty: exist.qty + qty } : x
           )
-        : [...items, { ...item, qty: 1 }]
+        : [...items, { ...item, qty }]
+
       const { itemsPrice, shippingPrice, taxPrice, totalPrice } =
         calcPrice(updatedCartItems)
+
       cartStore.setState({
         items: updatedCartItems,
         itemsPrice,
@@ -50,7 +69,9 @@ export default function useCartStore() {
         totalPrice,
       })
     },
+
     decrease: (item: OrderItem) => {
+      //check if the elemment exist in the items array
       const exist = items.find((x) => x.slug === item.slug)
       if (!exist) return
       const updatedCartItems =

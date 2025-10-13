@@ -4,15 +4,14 @@ import data from '@/lib/data'
 import ImageDetails from './imageDetails'
 import AddToCart from '@/app/components/products/AddToCart'
 import { round2 } from '@/lib/utils'
+import ProductDetailsClient from './ProductDetailsClient'
 export default async function ProductDetails({
   params,
 }: {
   params: { slug: string }
 }) {
   const product = data.products.find((x) => x.slug === params.slug)
-  if (!product) {
-    return <div>Product not found</div>
-  }
+  if (!product) return <div>Product not found</div>
 
   return (
     <div className="my-16">
@@ -26,56 +25,6 @@ export default async function ProductDetails({
         <div>
           <div className="lg: flex items-center align-center justify-center">
             <ImageDetails product={product} />
-            {/* <div>
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={500}
-                height={500}
-              />
-            </div>
-            <div className="flex gap-2 align-center justify-center">
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={100}
-                height={100}
-                style={{
-                  border: '2px solid #626262',
-                  borderRadius: '13px',
-                }}
-              />
-              <Image
-                src={product.image2}
-                alt={product.name}
-                width={100}
-                height={100}
-                style={{
-                  border: '2px solid #626262',
-                  borderRadius: '13px',
-                }}
-              />
-              <Image
-                src={product.image3}
-                alt={product.name}
-                width={100}
-                height={100}
-                style={{
-                  border: '2px solid #626262',
-                  borderRadius: '13px',
-                }}
-              />
-              <Image
-                src={product.image4}
-                alt={product.name}
-                width={100}
-                height={100}
-                style={{
-                  border: '2px solid #626262',
-                  borderRadius: '13px',
-                }}
-              />
-            </div> */}
           </div>
         </div>
         <div className="flex flex-col gap-6 justify-center align-center pb-14 sm: items-center">
@@ -119,17 +68,15 @@ export default async function ProductDetails({
             </p>
           </div>
           <div className="flex  flex-col gap-4 xs:w-full">
-            {product.countInStock !== 0 && (
+            <ProductDetailsClient product={product} />
+            {/* {product.countInStock !== 0 && (
               <div className="card-actions justify-center">
-                <AddToCart item={{ ...product, qty: 0 }} />
+                <AddToCart onQtyChange={(qty) => setSelectedQty(qty)} />
               </div>
-            )}
+            )} */}
             {/* <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent gap-4 xs:px-[10px]">
               <span> -</span> <span>1</span> <span>+</span>
             </button> */}
-            <button className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl max-w-[768px]:px-20 py-3 xs:w-full">
-              Comprar
-            </button>
           </div>
         </div>
       </div>
