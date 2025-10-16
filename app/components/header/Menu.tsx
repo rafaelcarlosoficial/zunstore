@@ -2,7 +2,7 @@
 import useCartService from '@/lib/hooks/useCartStore'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-
+import Image from 'next/image'
 const Menu = () => {
   const { items } = useCartService()
   const [mounted, setMounted] = useState(false)
@@ -12,28 +12,32 @@ const Menu = () => {
 
   return (
     <div>
-      <ul className="flex items-stretch">
+      <ul className="flex items-stretch gap-2">
         <li>
-          <Link
-            className="btn btn-soft btn-primary rouded-btn text-white"
-            href="/cart"
-          >
-            Cart
+          <Link href="/cart">
+            <Image
+              src="/assets/Cart.png"
+              alt="shopping cart"
+              width={24}
+              height={24}
+            />
             {mounted && items.length != 0 && (
-              <div className="badge badge-secondary">
+              <div
+                className="badge -mt-[13px] bg-orangeDefault text-white border-0 rounded-full text-sm
+"
+              >
                 {items.reduce((a, c) => a + c.qty, 0)}
-                {''}
               </div>
             )}
           </Link>
         </li>
         <li>
-          <button
-            className="btn btn-soft btn-primary rounded-btn text-white"
-            type="button"
-          >
-            Sign in
-          </button>
+          <Image
+            src="/assets/Avatar.png"
+            alt="User Avatar"
+            width={24}
+            height={24}
+          />
         </li>
       </ul>
     </div>

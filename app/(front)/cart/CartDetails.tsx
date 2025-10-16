@@ -30,14 +30,15 @@ export default function CartDetails() {
         </div>
       ) : (
         // If any shit happen set those values again: grid md:grid-cols-4 md:gap-5
-        <div className=" grid md:grid-cols-4 md:gap-5">
-          <div className="flex flex-col gap-15">
+        // <div className="flex flex-col lg:flex-row lg:items-center ">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-around">
+          <div className="flex flex-col gap-3 ">
             {items.map((item) => (
               <div
                 key={item.slug}
-                className="flex flex-col items-center justify-between gap-4 shadow-xl py-4"
+                className="flex flex-col items-center justify-between gap-3 shadow-xl py-4 sm:flex-row pr-[1.875rem] pl-[0.625rem] md:scale-[0.84] md:origin-top rounded-[10px]"
               >
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center sm:flex-row">
                   <div>
                     <Image
                       src={item.image}
@@ -50,7 +51,7 @@ export default function CartDetails() {
                     {/* <p className="text-black font-semibold text-base leading-[1.0625rem] items-center align-center justify-center">
                       {item.name}
                     </p> */}
-                    <p className="text-black font-semibold text-base leading-[1.0625rem] items-center align-center justify-center">
+                    <p className="text-black font-semibold text-base leading-[1.0625rem] items-center align-center justify-center sm:text-xl">
                       {item.name}
                     </p>
 
@@ -59,7 +60,7 @@ export default function CartDetails() {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col gap-4 items-center justify-center align-center">
+                <div className="flex flex-col gap-4 items-center justify-center align-center sm:flex-row-reverse ">
                   <p className="text-black font-semibold text-lg items-center align-center justify-center">
                     R$ {item.price}
                   </p>
@@ -90,110 +91,44 @@ export default function CartDetails() {
             ))}
           </div>
 
-          {/* <div>
-            <div>
-              Image
-              <div>
-                <p></p>
-                <span>Vendido por fulando de cicrano</span>
-              </div>
-              <div>
-                <span>Qunatidade</span>
-                <span>Preço</span>
-              </div>
-              <span>Lixeira</span>
-            </div>
-          </div> */}
+          <div className="bg-white shadow-xl flex flex-col items-center justify-center my-6 mx-6 py-8 md:min-w-[503px]">
+            <div className="h-[2px] bg-[#ADADAD] w-[90%] my-5"></div>
 
-          {/* <div className="overflow-x-auto md:col-span-3">
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                {items.map((item) => (
-                  <tr key={item.slug}>
-                    <td>
-                      <Link
-                        href={`/product/${item.slug}`}
-                        className="flex items-center"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={50}
-                          height={50}
-                        />
-                        <span className="px-2 text-black">{item.name}</span>
-                      </Link>
-                    </td>
-                    <td>
-                      <button
-                        className="btn"
-                        type="button"
-                        onClick={() => decrease(item)}
-                      >
-                        -
-                      </button>
-                      <span className="px-2 text-black">{item.qty}</span>
-                      <button
-                        className="btn"
-                        type="button"
-                        onClick={() => increase(item)}
-                      >
-                        +
-                      </button>
-                    </td>
-                    <td className="text-black">{item.price}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div> */}
-          <div className="bg-white shadow-xl flex flex-col items-center justify-center my-6 mx-6 py-8">
-            <ul className="flex flex-col items-center justify-center gap-2 text-black">
-              <li className="flex space-between gap-2">
+            <ul className="flex flex-col items-center justify-between gap-2 text-black w-full md:pt-[1.25rem] md:pb-[1.25rem]">
+              <li className="flex justify-around items-center gap-2 w-full">
                 <span>SubTotal</span>
                 <span>R$ 1917,99</span>
               </li>
 
-              <li className="flex items-center gap-2">
+              <li className="flex justify-around items-center gap-2 w-full">
                 <span>Descontos</span>
                 <span>R$ 174,80</span>
               </li>
-              <li className="flex items-center gap-2">
-                <span>Total</span>
-                <span>R$ 1743,19</span>
+
+              <li className="flex justify-around items-center gap-2 w-full">
+                <span
+                  className="md:text-2xl font-semibold text-lg
+"
+                >
+                  Total
+                </span>
+                <span
+                  className="md:text-2xl font-semibold text-1xl
+"
+                >
+                  R$ 1743,19
+                </span>
               </li>
+
               <li>
-                <button className="text-white text-xl bg-orangeDefault px-12 py-2 rounded-4xl">
+                <button className="text-white text-xl bg-orangeDefault px-12 py-2 rounded-4xl sm:w-full md:w-full md:py-[10px] md:px-[9rem]">
                   Continuar
                 </button>
               </li>
+
+              <li className="text-sm underline">Adicionar mais produtos</li>
             </ul>
           </div>
-
-          {/* <div className="card bg-base-300">
-            <div className="card-body">
-              <ul>
-                <li>
-                  <div className="pb-3 text-xl">
-                    Subtotal ({items.reduce((a, c) => a + c.qty, 0)})
-                    {itemsPrice}
-                  </div>
-                </li>
-                <li>
-                  <button onClick={() => router.push('/shipping')}>
-                    Proceed to Checkout
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div> */}
         </div>
       )}
     </>

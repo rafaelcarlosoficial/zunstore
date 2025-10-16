@@ -15,28 +15,7 @@ const Header = () => {
               height={72}
             />
           </Link>
-          <ul className="flex gap-[30px] justify-center items-center">
-            <li>
-              <Link href="/">
-                <Image
-                  src="/assets/Avatar.png"
-                  alt="User Avatar"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-            </li>
-            <li>
-              <Link href="/">
-                <Image
-                  src="/assets/Cart.png"
-                  alt="shopping cart"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-            </li>
-          </ul>
+
           <Menu />
         </div>
       </nav>
