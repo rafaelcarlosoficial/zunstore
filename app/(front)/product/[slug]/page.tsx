@@ -3,14 +3,32 @@ import Link from 'next/link'
 import data from '@/lib/data'
 import ImageDetails from './imageDetails'
 import AddToCart from '@/app/components/products/AddToCart'
-import { round2 } from '@/lib/utils'
+import { convertDocToObj, round2 } from '@/lib/utils'
 import ProductDetailsClient from './ProductDetailsClient'
+import productService from '@/lib/services/productService'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const product = await productService.getBySlug(params.slug)
+  if (!product) {
+    return { title: 'Product not found' }
+  }
+
+  return {
+    title: product.name,
+  }
+}
+
 export default async function ProductDetails({
   params,
 }: {
   params: { slug: string }
 }) {
-  const product = data.products.find((x) => x.slug === params.slug)
+  // const product = data.products.find((x) => x.slug === params.slug)
+  const product = await productService.getBySlug(params.slug)
   if (!product) return <div>Product not found</div>
 
   return (
@@ -24,7 +42,7 @@ export default async function ProductDetails({
       <div className="flex flex-col justify-around lg:flex-row ">
         <div>
           <div className="lg: flex items-center align-center justify-center">
-            <ImageDetails product={product} />
+            <ImageDetails product={convertDocToObj(product)} />
           </div>
         </div>
         <div className="flex flex-col gap-6 justify-center align-center pb-14 sm: items-center">
@@ -71,7 +89,14 @@ export default async function ProductDetails({
             <ProductDetailsClient product={product} />
             {/* {product.countInStock !== 0 && (
               <div className="card-actions justify-center">
-                <AddToCart onQtyChange={(qty) => setSelectedQty(qty)} />
+                <AddToCart
+                  item={{
+                    ...convertDocToObj(product),
+                    qty: 0,
+                    color: '',
+                    size: '',
+                  }}
+                />
               </div>
             )} */}
             {/* <button className="text-black border-[2px] border-[#D9D9D9] rounded-4xl px-6 py-4 bg-transparent gap-4 xs:px-[10px]">

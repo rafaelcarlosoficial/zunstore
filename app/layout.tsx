@@ -4,6 +4,8 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from './components/header/header'
 import Footer from './components/footer/footer'
+import Providers from './components/Providers'
+
 const inter = Inter({ subsets: ['latin'] })
 
 const geistSans = Geist({
@@ -30,11 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex flex-col bg-white">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+        <Providers>
+          <div className="min-h-screen flex flex-col bg-white">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
   )
