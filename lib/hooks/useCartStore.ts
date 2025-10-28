@@ -125,6 +125,11 @@ export default function useCartStore() {
     savePaymentMethod: (paymentMethod: string) => {
       cartStore.setState({ paymentMethod })
     },
+    clear: () => {
+      cartStore.setState({
+        items: [],
+      })
+    },
   }
 }
 

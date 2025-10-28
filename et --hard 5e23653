@@ -1,0 +1,24 @@
+[33m5e23653[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m bugou
+[33m55e111c[m Register New Users and Create Order Details Page
+[33m32c6854[m Authenticação 99% concluída. Há um erro no no header quando voce clica em sigin
+[33m58cae66[m Conexão do MongoDB concluída
+[33m27f0f8a[m Conectando com database
+[33m178a6d5[m CartDetails atualizado com sucesso Header Parcialmente ajustado
+[33m373a4d9[m CardDetails personalização parcialmente concluída para o mobile
+[33m3450279[m increase e decrease funcionando normalmente
+[33m52b56f2[m Botões de acréscimo de quantidade funcionando
+[33me03d838[m  Botões de acréscimos funcionando pacialmente (com alguns bugs) mas com a lógica ok
+[33m60d29a8[m Botões em desenvolvimento
+[33m3b8160e[m Botão de acréscimo funcionando parcialmente
+[33m0526c78[m Página Principal Responsiva - ProductDetails parcialmente responsiva (bugs nos botões)
+[33ma3474d7[m as Imagens do ProductDetails estão sendo alteradas com sucesso
+[33me2e4567[m Espaçamentos definidos no productDetails
+[33m84890e5[m Alterações no Nome das Imagens e Desenvolvimento do Details-page (incompleto por enquanto)
+[33mcbd3816[m ProductItem alterado com o footer alterado
+[33m7c9dfe5[m 3 Primeiros fones de ouvidos carregando normalmente
+[33m00d5b35[m Lista inicial de produtos concluída
+[33m870f21c[m ALTERAÇÕES: no headear footer
+[33m3c43303[m footer feito
+[33m42b60d8[m Footer Html
+[33medb74af[m Tailwind configurado com sucesso
+[33ma0b445a[m Initial commit from Create Next App
