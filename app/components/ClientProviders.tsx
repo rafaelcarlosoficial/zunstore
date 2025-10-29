@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { SWRConfig } from 'swr'
+import { cartStore } from '@/lib/hooks/useCartStore'
 export default function ClientProviders({
   children,
 }: {

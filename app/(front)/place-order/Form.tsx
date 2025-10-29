@@ -1,12 +1,13 @@
+'use client'
+import CheckoutSteps from '@/app/components/CheckoutSteps'
 import useCartService from '@/lib/hooks/useCartStore'
-import { useRouter } from 'next/router'
-import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import useSWRMutation from 'swr/mutation'
-import Link from 'next/link'
 import Image from 'next/image'
-//CHECKOUT DEVE ESTAR EM UM LOCAL ERRADO
-import CheckoutSteps from '@/app/components/CheckoutSteps'
+
 const Form = () => {
   const router = useRouter()
   const {
@@ -196,5 +197,4 @@ const Form = () => {
     </div>
   )
 }
-
 export default Form
