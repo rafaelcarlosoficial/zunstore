@@ -18,6 +18,7 @@ const calcPrices = (orderItems: OrderItem[]) => {
   return { itemsPrice, shippingPrice, taxPrice, totalPrice }
 }
 
+//check if the user is logged in
 export const POST = auth(async (req: any) => {
   if (!req.auth) {
     return Response.json(
@@ -27,16 +28,21 @@ export const POST = auth(async (req: any) => {
       }
     )
   }
+
   const { user } = req.auth
   try {
     const payload = await req.json()
     await dbConnect()
+
+    //DbProductPrices to ensure prices are correct and not manipulated from the client side
     const dbProductPrices = await ProductModel.find(
       {
         _id: { $in: payload.items.map((x: { _id: string }) => x._id) },
       },
       'price'
     )
+
+    //dbOrderItems to map the order items with correct prices
     const dbOrderItems = payload.items.map((x: { _id: string }) => ({
       ...x,
       product: x._id,
