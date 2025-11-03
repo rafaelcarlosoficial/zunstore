@@ -1,9 +1,11 @@
 'use client'
+import { PayPalButtons, PayPalScriptProvider } from '@paypal/react-paypal-js'
 import { OrderItem } from '@/lib/models/OrderModel'
 import { useSession } from 'next-auth/react'
 import useSWR from 'swr'
 import Link from 'next/link'
 import Image from 'next/image'
+import { toast } from 'react-hot-toast'
 
 export default function OrderDetails({
   orderId,
@@ -13,6 +15,32 @@ export default function OrderDetails({
   paypalClientId: string
 }) {
   const { data: session } = useSession()
+
+  function createPayPalOrder() {
+    return fetch(`/api/orders/${orderId}/create-paypal-order`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((order) => order.id)
+  }
+
+  function onApprovePayPalOrder(data: any) {
+    return fetch(`/api/orders/${orderId}/capture-paypal-order`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((orderData) => {
+        toast.success('Order paid successfully')
+      })
+  }
+
   const { data, error } = useSWR(`/api/orders/${orderId}`)
 
   if (error) return error.message
@@ -34,7 +62,7 @@ export default function OrderDetails({
 
   return (
     <div>
-      <h1 className="text2x-l py-4"> Order {orderId} </h1>
+      <h1 className="text2x-l py-4 text-black"> Order {orderId} </h1>
       <div className="grid md:grid-cols-4 md:gap-5 my-4">
         <div className="md:col-span-3">
           <div className="card bg-base-300">
@@ -117,12 +145,6 @@ export default function OrderDetails({
                 </li>
                 <li>
                   <div className="mb-2 flex justify-between">
-                    <div>Items Price</div>
-                    <div>${itemsPrice}</div>
-                  </div>
-                </li>
-                <li>
-                  <div className="mb-2 flex justify-between">
                     <div>Tax Price</div>
                     <div>${taxPrice}</div>
                   </div>
@@ -139,6 +161,18 @@ export default function OrderDetails({
                     <div>${totalPrice}</div>
                   </div>
                 </li>
+                {!isPaid && paymentMethod === 'PayPal' && (
+                  <li>
+                    <PayPalScriptProvider
+                      options={{ clientId: paypalClientId }}
+                    >
+                      <PayPalButtons
+                        createOrder={createPayPalOrder}
+                        onApprove={onApprovePayPalOrder}
+                      />
+                    </PayPalScriptProvider>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

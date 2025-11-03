@@ -130,6 +130,7 @@ export default function useCartStore() {
         items: [],
       })
     },
+    init: () => cartStore.setState(initialState),
   }
 }
 
