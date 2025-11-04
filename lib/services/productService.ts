@@ -13,7 +13,7 @@ const getLatest = cache(async () => {
 const getFeatured = cache(async () => {
   await dbConnect()
   const products = await ProductModel.find({ isFeatured: true }).limit(3).lean()
-  console.log('olho os produtos aqui', products)
+  // console.log('olho os produtos aqui', products)
   return products
 })
 

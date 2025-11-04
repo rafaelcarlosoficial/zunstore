@@ -15,44 +15,17 @@ export default async function Home() {
   const latestProducts = await productService.getLatest()
   return (
     <div>
-      <div className="w-full carousel rounded-box mt-4">
-        {featuredProducts.map((product, index) => (
-          <div
-            key={product._id}
-            id={`slide-${index}`}
-            className="carousel-item relative w-full"
-          >
-            <Link href={`/product/${product.slug}`}>
-              <div className="relative w-full h-[650px]">
-                <Image
-                  src="/assets/Desktop-banner-ZunStore.webp"
-                  alt="banner"
-                  fill
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            </Link>
-            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a
-                href={`#slide-${
-                  index === 0 ? featuredProducts.length - 1 : index - 1
-                }`}
-                className="btn btn-circle"
-              >
-                ❮
-              </a>
-              <a
-                href={`#slide-${
-                  index === featuredProducts.length - 1 ? 0 : index + 1
-                }`}
-                className="btn btn-circle"
-              >
-                ❯
-              </a>
-            </div>
-          </div>
-        ))}
+      <div className="relative left-1/2 right-1/2 -mx-[50vw] w-screen">
+        <Image
+          src="/assets/Desktop-banner-ZunStore.webp"
+          alt="banner"
+          width={1920}
+          height={150}
+          className="w-[100vw]"
+          priority
+        />
       </div>
+
       <h2 className="text-2xl py-2 text-black">Latest Products</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 justify-center">
         {latestProducts.map((product) => (
