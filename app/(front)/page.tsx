@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Productitem from '../components/products/Productitem'
 import data from '@/lib/data'
 import productService from '@/lib/services/productService'
+import LoadMoreProducts from '../components/products/LoadMoreProducts'
+
 import Link from 'next/link'
 import Image from 'next/image'
 export const metadata: Metadata = {
@@ -31,6 +33,7 @@ export default async function Home() {
         {latestProducts.map((product) => (
           <Productitem key={product.slug} product={product} />
         ))}
+        {/* <LoadMoreProducts initialProducts={latestProducts} /> */}
       </div>
     </div>
   )

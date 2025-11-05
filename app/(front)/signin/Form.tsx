@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { SubmitHandler } from 'react-hook-form'
 import Link from 'next/link'
+
 type Inputs = {
   email: string
   password: string
@@ -42,9 +43,11 @@ const Form = () => {
     })
   }
   return (
-    <div className="max-w-sm  mx-auto card bg-base-300 my-4">
+    <div className="max-w-sm  mx-auto card bg-orangeWhite shadow-xl/20  my-4">
       <div className="card-body">
-        <h1 className="card-title">Sign in</h1>
+        <div className="flex align-center justify-center">
+          <h1 className="card-title text-black text-3xl text-center">Login</h1>
+        </div>
         {params.get('error') && (
           <div className="alert text-error">
             {params.get('error') === 'CredentialsSignin'
@@ -57,7 +60,7 @@ const Form = () => {
         )}
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">
-            <label className="label" htmlFor="email">
+            <label className="label text-black" htmlFor="email">
               Email
             </label>
             <input
@@ -70,14 +73,14 @@ const Form = () => {
                   message: 'Email is invalid',
                 },
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm bg-white border-b-gray-500"
             />
             {errors.email?.message && (
               <div className="text-error">{errors.email.message}</div>
             )}
           </div>
           <div className="my-2">
-            <label className="label" htmlFor="password">
+            <label className="label text-black" htmlFor="password">
               Password
             </label>
             <input
@@ -86,7 +89,7 @@ const Form = () => {
               {...register('password', {
                 required: 'Password is required',
               })}
-              className="input input-bordered w-full max-w-sm"
+              className="input input-bordered w-full max-w-sm bg-white border border-b-gray-500"
             />
             {errors.password?.message && (
               <div className="text-error">{errors.password.message}</div>
@@ -96,20 +99,26 @@ const Form = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary w-full"
+              className="btn btn-primary w-full bg-orangeDefault border-2 border-orangeDefault"
             >
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
-              Sign in
+              Criar conta
             </button>
           </div>
         </form>
-        <div>
-          Need an account?{' '}
-          <Link className="link" href={`/register?callbackUrl=${callbackUrl}`}>
-            Register
-          </Link>
+        <div className="flex align-center justify-center">
+          <span className="text-black">
+            {' '}
+            Precisa de uma conta?{' '}
+            <Link
+              className="link"
+              href={`/register?callbackUrl=${callbackUrl}`}
+            >
+              Registre
+            </Link>
+          </span>
         </div>
       </div>
     </div>
