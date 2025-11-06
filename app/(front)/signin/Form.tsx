@@ -106,7 +106,7 @@ const Form = () => {
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
               )}
-              Criar conta
+              Entrar na sua conta
             </button>
           </div>
         </form>
