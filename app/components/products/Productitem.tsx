@@ -44,7 +44,7 @@ export default function Productitem({ product }: { product: Product }) {
         </div>
         <button
           className="size-min bg-orangeDefault text-white text-base
- font-semibold rounded-[30px] hover:bg-green-700 py-5 px-14  w-full"
+ font-semibold rounded-[30px] hover:bg-orangeHover hover:cursor-pointer py-5 px-14  w-full"
         >
           Comprar
         </button>

@@ -43,7 +43,7 @@ const Form = () => {
     })
   }
   return (
-    <div className="max-w-sm  mx-auto card bg-orangeWhite shadow-xl/20  my-4">
+    <div className="max-w-sm  mx-auto card bg-orangeWhite shadow-xl/20  py-8 my-12">
       <div className="card-body">
         <div className="flex align-center justify-center">
           <h1 className="card-title text-black text-3xl text-center">Login</h1>
@@ -67,13 +67,14 @@ const Form = () => {
               type="text"
               id="email"
               {...register('email', {
-                required: 'Email is required',
+                required: 'O e-mail é obrigatório',
                 pattern: {
                   value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                  message: 'Email is invalid',
+                  message: 'O e-mail é inválido',
                 },
               })}
-              className="input input-bordered w-full max-w-sm bg-white border-b-gray-500"
+              className="input input-bordered w-full max-w-sm bg-white border-black text-black"
+              placeholder="Digite seu email"
             />
             {errors.email?.message && (
               <div className="text-error">{errors.email.message}</div>
@@ -87,9 +88,10 @@ const Form = () => {
               type="password"
               id="password"
               {...register('password', {
-                required: 'Password is required',
+                required: 'A senha é obrigatória',
               })}
-              className="input input-bordered w-full max-w-sm bg-white border border-b-gray-500"
+              className="input input-bordered w-full max-w-sm bg-white border border-black text-black"
+              placeholder="Digite sua senha"
             />
             {errors.password?.message && (
               <div className="text-error">{errors.password.message}</div>
@@ -99,7 +101,7 @@ const Form = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="btn btn-primary w-full bg-orangeDefault border-2 border-orangeDefault"
+              className="btn btn-primary w-full bg-orangeDefault border-2 border-orangeDefault hover:bg-orangeHover hover:cursor-pointer py-5"
             >
               {isSubmitting && (
                 <span className="loading loading-spinner"></span>
@@ -108,12 +110,12 @@ const Form = () => {
             </button>
           </div>
         </form>
-        <div className="flex align-center justify-center">
+        <div className="flex align-center justify-center ">
           <span className="text-black">
             {' '}
             Precisa de uma conta?{' '}
             <Link
-              className="link"
+              className="link text-orangeDefault font-semibold hover:text-orangeHover"
               href={`/register?callbackUrl=${callbackUrl}`}
             >
               Registre
