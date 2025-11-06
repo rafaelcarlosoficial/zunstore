@@ -49,7 +49,7 @@ const Form = () => {
     pattern?: ValidationRule<RegExp>
   }) => (
     <div className="mb-2">
-      <label className="label" htmlFor={id}>
+      <label className="label text-black" htmlFor={id}>
         {name}
       </label>
       <input
@@ -59,7 +59,7 @@ const Form = () => {
           required: required && `${name} is required`,
           pattern,
         })}
-        className="input input-bordered w-full max-w-sm"
+        className="input input-bordered w-full max-w-sm bg-white text-black border-black "
       />
       {errors[id]?.message && (
         <div className="text-error">{errors[id]?.message}</div>
@@ -70,9 +70,9 @@ const Form = () => {
   return (
     <div>
       <CheckoutSteps current={1} />
-      <div className="max-w-sm mx-auto card bg-base-300 my-4">
-        <div className="card-body">
-          <h1 className="card-title">Shipping Address</h1>
+      <div className="max-w-sm mx-auto card bg-orangeWhite shadow-xl/20  py-8 my-12">
+        <div className="card-body ">
+          <h1 className="card-title text-black">Endereço para envio</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
             <FormInput name="Full Name" id="fullName" required />
             <FormInput name="Address" id="address" required />
@@ -83,7 +83,7 @@ const Form = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="btn btn-primary w-full"
+                className="btn btn-primary w-full bg-orangeDefault  border-orangeDefault hover:bg-orangeHover hover:cursor-pointer py-5 border-none"
               >
                 {isSubmitting && (
                   <span className="loading loading-spinner"></span>

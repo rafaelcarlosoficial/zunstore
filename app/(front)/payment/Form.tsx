@@ -33,14 +33,16 @@ const Form = () => {
   return (
     <div>
       <CheckoutSteps current={2} />
-      <div className="max-w-sm mx-auto card bg-base-300 my-4">
+      <div className="max-w-sm mx-auto card bg-orangeWhite shadow-xl/20 py-8 my-12">
         <div className="card-body">
-          <h1 className="card-title">Payment Method</h1>
+          <h1 className="card-title text-black text-center">
+            Método De Pagamento
+          </h1>
           <form onSubmit={handleSubmit}>
             {['PayPal', 'Stripe', 'CashOnDelivery'].map((payment) => (
               <div key={payment}>
                 <label className="label cursor-pointer">
-                  <span className="label-text">{payment}</span>
+                  <span className="label-text text-black">{payment}</span>
                   <input
                     type="radio"
                     name="paymentMethod"
@@ -53,14 +55,17 @@ const Form = () => {
               </div>
             ))}
             <div className="my-2">
-              <button type="submit" className="btn btn-primary w-full">
+              <button
+                type="submit"
+                className="btn btn-primary w-full bg-orangeDefault border-orangeDefault hover:bg-orangeHover hover:cursor-pointer py-5 border-none"
+              >
                 Next
               </button>
             </div>
             <div className="my-2">
               <button
                 type="button"
-                className="btn w-full my-2"
+                className="btn w-full my-2 bg-black text-white"
                 onClick={() => router.back()}
               >
                 Back

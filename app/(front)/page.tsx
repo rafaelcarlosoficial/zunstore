@@ -28,7 +28,7 @@ export default async function Home() {
         />
       </div>
 
-      <h2 className="text-2xl py-2 text-black">Latest Products</h2>
+      <h2 className="text-2xl py-2 text-black">Os melhores fones sem fio</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 justify-center">
         {latestProducts.map((product) => (
           <Productitem key={product.slug} product={product} />

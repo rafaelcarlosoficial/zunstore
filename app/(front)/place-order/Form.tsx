@@ -74,7 +74,7 @@ const Form = () => {
         <div className="overflow-x-auto md:col-span-3">
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Shipping Address</h2>
+              <h2 className="card-title">Dados de entrega</h2>
               <p>{shippingAddress.fullName}</p>
               <p>
                 {shippingAddress.address}, {shippingAddress.city},{' '}
@@ -82,7 +82,7 @@ const Form = () => {
               </p>
               <div>
                 <Link className="btn" href="/shipping">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
@@ -90,11 +90,11 @@ const Form = () => {
 
           <div className="card bg-base-300 mt-4">
             <div className="card-body">
-              <h2 className="card-title">Payment Method</h2>
+              <h2 className="card-title">Método de Pagamento</h2>
               <p>{paymentMethod}</p>
               <div>
                 <Link className="btn" href="/payment">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
@@ -107,8 +107,8 @@ const Form = () => {
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -140,7 +140,7 @@ const Form = () => {
               </table>
               <div>
                 <Link className="btn" href="/cart">
-                  Edit
+                  Editar
                 </Link>
               </div>
             </div>
@@ -150,7 +150,7 @@ const Form = () => {
         <div>
           <div className="card bg-base-300">
             <div className="card-body">
-              <h2 className="card-title">Order Summary</h2>
+              {/* <h2 className="card-title">Order Summary</h2> */}
               <ul className="space-y-3">
                 <li>
                   <div className=" flex justify-between">
@@ -181,12 +181,12 @@ const Form = () => {
                   <button
                     onClick={() => placeOrder()}
                     disabled={isPlacing}
-                    className="btn btn-primary w-full"
+                    className="btn btn-primary w-full bg-orangeDefault border-orangeDefault hover:bg-orangeHover hover:cursor-pointer py-5"
                   >
                     {isPlacing && (
                       <span className="loading loading-spinner"></span>
                     )}
-                    Place Order
+                    Continuar
                   </button>
                 </li>
               </ul>
