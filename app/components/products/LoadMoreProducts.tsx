@@ -1,66 +1,59 @@
-// 'use client'
-// import { useState } from 'react'
-// import { Product } from '@/lib/models/ProductModel'
-// import Productitem from './Productitem'
+'use client'
+import { useState } from 'react'
+import { Product } from '@/lib/models/ProductModel'
+import Productitem from './Productitem'
 
-// type LoadMoreProductsProps = {
-//   initialProducts: Product[]
-// }
-// export default function LoadMoreProducts({
-//   initialProducts,
-// }: LoadMoreProductsProps) {
-//   const [products, setProducts] = useState(initialProducts)
-//   const [page, setPage] = useState(1)
-//   const [loading, setLoading] = useState(false)
-//   const [hasMore, setHasMore] = useState(true)
+type LoadMoreProductsProps = {
+  initialProducts: Product[]
+}
 
-//   const loadMore = async () => {
-//     setLoading(true)
-//     try {
-//       const res = await fetch(`/api/products?page=${page + 1}`)
-//       const data = await res.json()
+export default function LoadMoreProducts({
+  initialProducts,
+}: LoadMoreProductsProps) {
+  const [products, setProducts] = useState<Product[]>(initialProducts)
+  const [page, setPage] = useState(1)
+  const [loading, setLoading] = useState(false)
+  const [hasMore, setHasMore] = useState(true)
 
-//       if (data.products.length === 0) {
-//         setHasMore(false)
-//       } else {
-//         setProducts([...products, ...data.products])
-//         setPage(page + 1)
-//       }
+  const loadMore = async () => {
+    if (loading || !hasMore) return
+    setLoading(true)
+    try {
+      const res = await fetch(`/api/products/load?page=${page + 1}`)
+      const data = await res.json()
 
-//       return Response.json(
-//         { message: 'Products loaded' },
-//         {
-//           status: 200,
-//         }
-//       )
-//     } catch (error: any) {
-//       return Response.json(
-//         { error: error.message },
-//         {
-//           status: 500,
-//         }
-//       )
-//     }
-//   }
-//   return (
-//     <div>
-//       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 justify-center">
-//         {initialProducts.map((product) => (
-//           <Productitem key={product.slug} product={product} />
-//         ))}
-//       </div>
+      if (!data.products.length) {
+        setHasMore(false)
+      } else {
+        setProducts((prev) => [...prev, ...data.products])
+        setPage((prev) => prev + 1)
+      }
+    } catch (error) {
+      console.error('Failed to load more products:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-//       {hasMore && (
-//         <div className="flex justify-center mt-4">
-//           <button
-//             onClick={loadMore}
-//             disabled={loading}
-//             className="btn btn-outline btn-primary"
-//           >
-//             {loading ? 'Loading...' : 'Load More Products'}
-//           </button>
-//         </div>
-//       )}
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {products.map((product) => (
+          <Productitem key={product._id ?? product.slug} product={product} />
+        ))}
+      </div>
+
+      {hasMore && (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={loadMore}
+            disabled={loading}
+            className="btn btn-outline btn-primary"
+          >
+            {loading ? 'Loading...' : 'Load More Products'}
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}

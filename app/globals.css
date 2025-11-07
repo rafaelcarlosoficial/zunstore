@@ -33,3 +33,24 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.steps {
+  border: none;
+}
+.steps .step.step-orange {
+  --custom-color-hex: var(--color-orangeDefault);
+}
+
+.steps .step.step-custom-color::before {
+  background-color: var(--color-orangeDefault);
+  border-color: var(--color-orangeDefault);
+  border-width: 3px;
+  border-style: solid;
+  color: white;
+  box-sizing: border-box;
+}
+
+.steps .step.step-custom-color::after {
+  background-color: var(--color-orangeDefault);
+  border: none;
+}

@@ -76,8 +76,6 @@ export type OrderItem = {
   qty: number
   image: string
   price: number
-  // color: string,
-  // size: string,
 }
 
 export type ShippingAddress = {

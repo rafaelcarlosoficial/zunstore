@@ -5,7 +5,7 @@ const CheckoutSteps = ({ current = 0 }) => {
         (step, index) => (
           <li
             key={step}
-            className={`step text-black 
+            className={`step step-custom-color text-black border-none
            ${index <= current ? 'step-primary' : ''}
            `}
           >

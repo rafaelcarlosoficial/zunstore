@@ -10,6 +10,16 @@ const getLatest = cache(async () => {
   return products as Product[]
 })
 
+const getProductsBatch = async (skip = 0) => {
+  await dbConnect()
+  const products = await ProductModel.find({})
+    .sort({ _id: -1 })
+    .skip(skip)
+    .limit(4)
+    .lean()
+  return products as Product[]
+}
+
 const getFeatured = cache(async () => {
   await dbConnect()
   const products = await ProductModel.find({ isFeatured: true }).limit(3).lean()
@@ -27,6 +37,7 @@ const productService = {
   getLatest,
   getFeatured,
   getBySlug,
+  getProductsBatch,
 }
 
 export default productService

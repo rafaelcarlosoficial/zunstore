@@ -42,11 +42,13 @@ const Form = () => {
     name,
     required,
     pattern,
+    placeholder,
   }: {
     id: keyof ShippingAddress
     name: string
     required?: boolean
     pattern?: ValidationRule<RegExp>
+    placeholder: string
   }) => (
     <div className="mb-2">
       <label className="label text-black" htmlFor={id}>
@@ -55,6 +57,7 @@ const Form = () => {
       <input
         type="text"
         id={id}
+        placeholder={placeholder}
         {...register(id, {
           required: required && `${name} is required`,
           pattern,
@@ -74,11 +77,36 @@ const Form = () => {
         <div className="card-body ">
           <h1 className="card-title text-black">Endereço para envio</h1>
           <form onSubmit={handleSubmit(formSubmit)}>
-            <FormInput name="Full Name" id="fullName" required />
-            <FormInput name="Address" id="address" required />
-            <FormInput name="City" id="city" required />
-            <FormInput name="Postal Code" id="postalCode" required />
-            <FormInput name="Country" id="country" required />
+            <FormInput
+              name="Nome completo"
+              id="fullName"
+              placeholder="Digite seu nome"
+              required
+            />
+            <FormInput
+              name="Endereço"
+              id="address"
+              placeholder="Digite seu endereço"
+              required
+            />
+            <FormInput
+              name="Cidade"
+              id="city"
+              placeholder="Digite sua cidade"
+              required
+            />
+            <FormInput
+              name="CEP"
+              id="postalCode"
+              placeholder="Digite seu CEP"
+              required
+            />
+            <FormInput
+              name="País"
+              id="country"
+              placeholder="Digite seu país"
+              required
+            />
             <div className="my-2">
               <button
                 type="submit"

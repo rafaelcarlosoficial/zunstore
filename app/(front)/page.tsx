@@ -3,9 +3,9 @@ import Productitem from '../components/products/Productitem'
 import data from '@/lib/data'
 import productService from '@/lib/services/productService'
 import LoadMoreProducts from '../components/products/LoadMoreProducts'
-
 import Link from 'next/link'
 import Image from 'next/image'
+
 export const metadata: Metadata = {
   title: process.env.NEXT_PUBLIC_APP_NAME || 'zunstore',
   description:
@@ -33,7 +33,15 @@ export default async function Home() {
         {latestProducts.map((product) => (
           <Productitem key={product.slug} product={product} />
         ))}
-        {/* <LoadMoreProducts initialProducts={latestProducts} /> */}
+      </div>
+      <div className="flex align-center justify-center">
+        <button
+          className="bg-orangeDefault p-2 text-white text-semibold border-rounded mt-4 hover:bg-orangeHover rounded-2xl
+
+"
+        >
+          Load More
+        </button>
       </div>
     </div>
   )
