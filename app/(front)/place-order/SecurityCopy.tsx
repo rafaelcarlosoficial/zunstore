@@ -72,42 +72,26 @@ const Form = () => {
 
       <div className="grid md:grid-cols-4 md:gap-5 my-4">
         <div className="overflow-x-auto md:col-span-3">
-          <div className="card bg-white">
-            <div className="card-body bg-white border border-black rounded-2xl">
-              <div className="flex justify-between">
-                <h2 className="card-title text-orangeDefault">
-                  <span>1</span>Dados de entrega
-                </h2>
+          <div className="card bg-base-300">
+            <div className="card-body">
+              <h2 className="card-title">Dados de entrega</h2>
+              <p>{shippingAddress.fullName}</p>
+              <p>
+                {shippingAddress.address}, {shippingAddress.city},{' '}
+                {shippingAddress.postalCode}, {shippingAddress.country}{' '}
+              </p>
+              <div>
                 <Link className="btn" href="/shipping">
                   Editar
                 </Link>
               </div>
-
-              <p className="text-black">{shippingAddress.fullName}</p>
-              <p className="text-black">
-                {shippingAddress.address}, {shippingAddress.city},{' '}
-              </p>
-              <p className="text-black">
-                {shippingAddress.postalCode}, {shippingAddress.country}{' '}
-              </p>
-              {/* <p>
-                {shippingAddress.address}, {shippingAddress.city},{' '}
-                {shippingAddress.postalCode}, {shippingAddress.country}{' '}
-              </p> */}
             </div>
           </div>
 
-          <div className="card bg-white mt-4">
-            <div className="card-body bg-white border border-black rounded-2xl ">
-              <div className="flex justify-between">
-                <h2 className="card-title text-orangeDefault">
-                  <span>2</span>Método de Pagamento
-                </h2>
-                <Link className="btn" href="/payment">
-                  Editar
-                </Link>
-              </div>
-              <p className="text-black">{paymentMethod}</p>
+          <div className="card bg-base-300 mt-4">
+            <div className="card-body">
+              <h2 className="card-title">Método de Pagamento</h2>
+              <p>{paymentMethod}</p>
               <div>
                 <Link className="btn" href="/payment">
                   Editar
@@ -116,17 +100,15 @@ const Form = () => {
             </div>
           </div>
 
-          <div className="card bg-white mt-4">
-            <div className="card-body border-black rounded-2xl border">
-              <h2 className="card-title text-orangeDefault">
-                <span>3</span>Items
-              </h2>
+          <div className="card bg-base-300 mt-4">
+            <div className="card-body">
+              <h2 className="card-title">Items</h2>
               <table className="table">
                 <thead>
-                  <tr className="text-black">
-                    <th className="text-black">Item</th>
-                    <th className="text-black">Quantidade</th>
-                    <th className="text-black">Preço</th>
+                  <tr>
+                    <th>Item</th>
+                    <th>Quantidade</th>
+                    <th>Preço</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -143,15 +125,15 @@ const Form = () => {
                             width={50}
                             height={50}
                           ></Image>
-                          <span className="px-2 text-black">
+                          <span className="px-2">
                             {item.name}({item.color} {item.size})
                           </span>
                         </Link>
                       </td>
                       <td>
-                        <span className="text-black">{item.qty}</span>
+                        <span>{item.qty}</span>
                       </td>
-                      <td className="text-black">${item.price}</td>
+                      <td>${item.price}</td>
                     </tr>
                   ))}
                 </tbody>
