@@ -2,7 +2,6 @@ import { Metadata } from 'next'
 import Productitem from '../components/products/Productitem'
 import data from '@/lib/data'
 import productService from '@/lib/services/productService'
-import LoadMoreProducts from '../components/products/LoadMoreProducts'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -27,21 +26,37 @@ export default async function Home() {
           priority
         />
       </div>
+      {/* <div className="bg-orangeDefault flex gap-3 w-screen py-4 ">
+        <Image
+          src="/assets/sponsors/apple.svg"
+          alt="banner"
+          width={110}
+          height={90}
+        />
+        <Image
+          src="/assets/sponsors/JBL.svg"
+          alt="banner"
+          width={110}
+          height={90}
+        />
+        <Image
+          src="/assets/sponsors/Spotify.svg"
+          alt="banner"
+          width={110}
+          height={90}
+        />
+      </div> */}
+      <h2
+        className="text-2xl md:text-3xl py-2 text-black font-custom text-center mb-8 mt-8
+"
+      >
+        Os melhores fones sem fio
+      </h2>
 
-      <h2 className="text-2xl py-2 text-black">Os melhores fones sem fio</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 justify-center">
         {latestProducts.map((product) => (
           <Productitem key={product.slug} product={product} />
         ))}
-      </div>
-      <div className="flex align-center justify-center">
-        <button
-          className="bg-orangeDefault p-2 text-white text-semibold border-rounded mt-4 hover:bg-orangeHover rounded-2xl
-
-"
-        >
-          Load More
-        </button>
       </div>
     </div>
   )

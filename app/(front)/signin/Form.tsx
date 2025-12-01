@@ -49,7 +49,7 @@ const Form = () => {
           <h1 className="card-title text-black text-3xl text-center">Login</h1>
         </div>
         {params.get('error') && (
-          <div className="alert text-error">
+          <div className="alert text-error bg-orangeWhite border-none shadow-none text-lg font-semibold text-center flex align-center justify-center">
             {params.get('error') === 'CredentialsSignin'
               ? 'Invalid email or password'
               : params.get('error')}

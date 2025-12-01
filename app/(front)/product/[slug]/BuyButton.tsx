@@ -22,7 +22,7 @@ const BuyButton = ({ product }: { product: Product }) => {
   return (
     <button
       onClick={handleBuy}
-      className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl xs:w-full"
+      className="text-white text-xl bg-orangeDefault px-35 py-4 rounded-4xl xs:w-full hover:bg-orangeHover"
     >
       Comprar
     </button>

@@ -17,6 +17,10 @@ const config: Config = {
       screens: {
         xs: { max: '360px' },
       },
+
+      fontFamily: {
+        myFont: ['var(--font-myFont)'],
+      },
     },
   },
   // plugins: [require('daisyui'),]

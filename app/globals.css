@@ -13,6 +13,15 @@
   --color-lightBlack: #15191e;
   --color-greenLight: #92992f;
 }
+@font-face {
+  font-family: 'demo';
+  src: url('/fonts/demo.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@theme {
+  --font-custom: 'demo', sans-serif;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -53,4 +62,12 @@ body {
 .steps .step.step-custom-color::after {
   background-color: var(--color-orangeDefault);
   border: none;
+}
+.steps-primary {
+  background-color: var(--color-orangeHover);
+}
+.step-primary::before,
+.step-primary::after {
+  background-color: var(--color-orangeHover) !important;
+  border-color: var(--color-orangeHover) !important;
 }

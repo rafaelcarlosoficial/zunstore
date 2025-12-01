@@ -26,7 +26,8 @@ export default function CartDetails() {
       </h1>
       {items.length === 0 ? (
         <div className="text-black">
-          Cart is empty. <Link href="/">Go Shopping</Link>
+          O carrinho está vazio.{' '}
+          <Link href="/">Adicione algum item ao carrinho</Link>
         </div>
       ) : (
         // If any shit happen set those values again: grid md:grid-cols-4 md:gap-5
@@ -36,7 +37,7 @@ export default function CartDetails() {
             {items.map((item) => (
               <div
                 key={item.slug}
-                className="flex flex-col items-center justify-between gap-3 shadow-xl py-4 sm:flex-row pr-[1.875rem] pl-[0.625rem] md:scale-[0.84] md:origin-top rounded-[10px]"
+                className="flex flex-col xl:flex-row items-center justify-between gap-3 shadow-xl py-4 sm:flex-row pr-[1.875rem] pl-[0.625rem] md:scale-[0.84] md:origin-top rounded-[10px]"
               >
                 <div className="flex flex-col items-center sm:flex-row">
                   <div>
@@ -121,12 +122,17 @@ export default function CartDetails() {
               </li>
 
               <li>
-                <button className="text-white text-xl bg-orangeDefault px-12 py-2 rounded-4xl sm:w-full md:w-full md:py-[10px] md:px-[9rem]">
-                  Continuar
-                </button>
+                <Link href="/shipping">
+                  <button className="text-white text-xl hover:cursor-pointer bg-orangeDefault px-12 py-2 rounded-4xl sm:w-full md:w-full md:py-[10px] md:px-[9rem] hover:bg-orangeHover">
+                    Continuar
+                  </button>
+                </Link>
               </li>
-
-              <li className="text-sm underline">Adicionar mais produtos</li>
+              <Link href="/">
+                <li className="text-sm text-black underline hover:text-orangeDefault hover:cursor-pointer">
+                  Adicionar mais produtos
+                </li>
+              </Link>
             </ul>
           </div>
         </div>

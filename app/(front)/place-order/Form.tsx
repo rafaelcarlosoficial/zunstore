@@ -49,6 +49,7 @@ const Form = () => {
       }
     }
   )
+
   useEffect(() => {
     if (!paymentMethod) {
       return router.push('/payment')
@@ -70,17 +71,34 @@ const Form = () => {
     <div>
       <CheckoutSteps current={4} />
 
-      <div className="grid md:grid-cols-4 md:gap-5 my-4">
+      <div className="grid lg:grid-cols-4 lg:gap-5 my-4">
+        {/* LEFT CONTENT */}
         <div className="overflow-x-auto md:col-span-3">
+          {/* --- SECTION 1 --- */}
           <div className="card bg-white">
             <div className="card-body bg-white border border-black rounded-2xl">
               <div className="flex justify-between">
-                <h2 className="card-title text-orangeDefault">
-                  <span>1</span>Dados de entrega
+                <h2 className="card-title text-orangeDefault flex items-center gap-2">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-full border-2 border-orangeDefault text-orangeDefault text-sm font-semibold">
+                    1
+                  </span>
+                  Dados de entrega
                 </h2>
-                <Link className="btn" href="/shipping">
-                  Editar
-                </Link>
+
+                <div className="flex flex-row justify-center items-center gap-1">
+                  <Link
+                    href="/shipping"
+                    className="flex items-center gap-1 text-black font-semibold"
+                  >
+                    <Image
+                      src="/assets/edit.svg"
+                      alt="Editar"
+                      width={24}
+                      height={24}
+                    />
+                    <span>Editar</span>
+                  </Link>
+                </div>
               </div>
 
               <p className="text-black">{shippingAddress.fullName}</p>
@@ -90,37 +108,61 @@ const Form = () => {
               <p className="text-black">
                 {shippingAddress.postalCode}, {shippingAddress.country}{' '}
               </p>
-              {/* <p>
-                {shippingAddress.address}, {shippingAddress.city},{' '}
-                {shippingAddress.postalCode}, {shippingAddress.country}{' '}
-              </p> */}
             </div>
           </div>
 
+          {/* --- SECTION 2 --- */}
           <div className="card bg-white mt-4">
             <div className="card-body bg-white border border-black rounded-2xl ">
               <div className="flex justify-between">
-                <h2 className="card-title text-orangeDefault">
-                  <span>2</span>Método de Pagamento
+                <h2 className="card-title text-orangeDefault flex items-center gap-2">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-full border-2 border-orangeDefault text-orangeDefault text-sm font-semibold">
+                    2
+                  </span>
+                  Método de Pagamento
                 </h2>
-                <Link className="btn" href="/payment">
-                  Editar
+
+                <Link
+                  href="/shipping"
+                  className="flex items-center gap-1 text-black font-semibold"
+                >
+                  <Image
+                    src="/assets/edit.svg"
+                    alt="Editar"
+                    width={24}
+                    height={24}
+                  />
+                  <span>Editar</span>
                 </Link>
               </div>
+
               <p className="text-black">{paymentMethod}</p>
-              <div>
-                <Link className="btn" href="/payment">
-                  Editar
-                </Link>
-              </div>
             </div>
           </div>
 
+          {/* --- SECTION 3 --- */}
           <div className="card bg-white mt-4">
             <div className="card-body border-black rounded-2xl border">
-              <h2 className="card-title text-orangeDefault">
-                <span>3</span>Items
-              </h2>
+              <div className="flex justify-between">
+                <h2 className="card-title text-orangeDefault flex items-center gap-2">
+                  <span className="w-7 h-7 flex items-center justify-center rounded-full border-2 border-orangeDefault text-orangeDefault text-sm font-semibold">
+                    3
+                  </span>
+                  Items
+                </h2>
+                <Link
+                  href="/shipping"
+                  className="flex items-center gap-1 text-black font-semibold"
+                >
+                  <Image
+                    src="/assets/edit.svg"
+                    alt="Editar"
+                    width={24}
+                    height={24}
+                  />
+                  <span>Editar</span>
+                </Link>
+              </div>
               <table className="table">
                 <thead>
                   <tr className="text-black">
@@ -142,9 +184,9 @@ const Form = () => {
                             alt={item.name}
                             width={50}
                             height={50}
-                          ></Image>
+                          />
                           <span className="px-2 text-black">
-                            {item.name}({item.color} {item.size})
+                            {item.name} ({item.color} {item.size})
                           </span>
                         </Link>
                       </td>
@@ -156,40 +198,35 @@ const Form = () => {
                   ))}
                 </tbody>
               </table>
-              <div>
-                <Link className="btn" href="/cart">
-                  Editar
-                </Link>
-              </div>
             </div>
           </div>
         </div>
 
-        <div>
-          <div className="card bg-base-300">
+        {/* RIGHT SUMMARY */}
+        <div className="mt-5 lg:mt-0">
+          <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">
-              {/* <h2 className="card-title">Order Summary</h2> */}
               <ul className="space-y-3">
                 <li>
-                  <div className=" flex justify-between">
+                  <div className="flex justify-between text-black">
                     <div>Items</div>
                     <div>${itemsPrice}</div>
                   </div>
                 </li>
                 <li>
-                  <div className=" flex justify-between">
+                  <div className="flex justify-between text-black">
                     <div>Tax</div>
                     <div>${taxPrice}</div>
                   </div>
                 </li>
                 <li>
-                  <div className=" flex justify-between">
+                  <div className="flex justify-between text-black">
                     <div>Shipping</div>
                     <div>${shippingPrice}</div>
                   </div>
                 </li>
                 <li>
-                  <div className=" flex justify-between">
+                  <div className="flex justify-between text-black text-bold">
                     <div>Total</div>
                     <div>${totalPrice}</div>
                   </div>
@@ -215,4 +252,5 @@ const Form = () => {
     </div>
   )
 }
+
 export default Form

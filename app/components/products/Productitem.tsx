@@ -42,12 +42,14 @@ export default function Productitem({ product }: { product: Product }) {
             ou em {product.installments}X no cartão
           </span>
         </div>
-        <button
-          className="size-min bg-orangeDefault text-white text-base
+        <Link href={`/product/${product.slug}`} className="w-full">
+          <button
+            className="size-min bg-orangeDefault text-white text-base
  font-semibold rounded-[30px] hover:bg-orangeHover hover:cursor-pointer py-5 px-14  w-full"
-        >
-          Comprar
-        </button>
+          >
+            Comprar
+          </button>
+        </Link>
         {/* {product.countInStock !== 0 && (
           <div className="card-actions justify-center">
             <AddToCart item={{ ...product, qty: 0 }} />

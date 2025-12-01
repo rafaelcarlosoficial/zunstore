@@ -62,49 +62,69 @@ export default function OrderDetails({
 
   return (
     <div>
-      <h1 className="text2x-l py-4 text-black"> Order {orderId} </h1>
+      <h1 className="text-2xl py-4 text-black">Order {orderId}</h1>
+
       <div className="grid md:grid-cols-4 md:gap-5 my-4">
+        {/* LEFT COLUMN */}
         <div className="md:col-span-3">
-          <div className="card bg-base-300">
+          {/* SHIPPING */}
+          <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">
-              <h2 className="card-title">Shipping Address</h2>
-              <p>{shippingAddress.fullName}</p>
-              <p>
+              <h2 className="card-title text-orangeDefault">
+                <span>1</span> Shipping Address
+              </h2>
+
+              <p className="text-black">{shippingAddress.fullName}</p>
+              <p className="text-black">
                 {shippingAddress.address}, {shippingAddress.city}, {''}
-                {shippingAddress.postalCode}, {shippingAddress.country}
-                {''}
               </p>
+              <p className="text-black">
+                {shippingAddress.postalCode}, {shippingAddress.country}
+              </p>
+
               {isDelivered ? (
-                <div className="text-success">Delivered at: {deliveredAt}</div>
+                <div className="text-green-600">
+                  Delivered at: {deliveredAt}
+                </div>
               ) : (
-                <div className="text-error">Not Delivered</div>
+                <div className="text-red-600">Not Delivered</div>
               )}
             </div>
           </div>
 
-          <div className="card bg-base-300 mt-4">
+          {/* PAYMENT */}
+          <div className="card bg-white border border-black rounded-2xl mt-4">
             <div className="card-body">
-              <h2 className="card-title">Payment Method</h2>
-              <p>{paymentMethod}</p>
+              <h2 className="card-title text-orangeDefault">
+                <span>2</span> Payment Method
+              </h2>
+
+              <p className="text-black">{paymentMethod}</p>
+
               {isPaid ? (
-                <div className="text-success">Paid at: {paidAt}</div>
+                <div className="text-green-600">Paid at: {paidAt}</div>
               ) : (
-                <div className="text-error">Not Paid</div>
+                <div className="text-red-600">Not Paid</div>
               )}
             </div>
           </div>
 
-          <div className="card bg-base-300 mt-4">
+          {/* ITEMS */}
+          <div className="card bg-white border border-black rounded-2xl mt-4">
             <div className="card-body">
-              <h2 className="card-title">Items</h2>
+              <h2 className="card-title text-orangeDefault">
+                <span>3</span> Items
+              </h2>
+
               <table className="table">
                 <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
+                  <tr className="text-black">
+                    <th className="text-black">Item</th>
+                    <th className="text-black">Quantity</th>
+                    <th className="text-black">Price</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   {items.map((item: OrderItem) => (
                     <tr key={item.slug}>
@@ -119,11 +139,13 @@ export default function OrderDetails({
                             width={50}
                             height={50}
                           />
-                          <span className="px-2">{item.name}</span>
+                          <span className="px-2 text-black">{item.name}</span>
                         </Link>
                       </td>
-                      <td>{item.qty}</td>
-                      <td>${item.price}</td>
+
+                      <td className="text-black">{item.qty}</td>
+
+                      <td className="text-black">${item.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -132,35 +154,41 @@ export default function OrderDetails({
           </div>
         </div>
 
+        {/* RIGHT COLUMN = SUMMARY */}
         <div>
-          <div className="card bg-base-300">
+          <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">
-              <h2 className="card-title">Order Summary</h2>
-              <ul>
+              <h2 className="card-title text-orangeDefault">Order Summary</h2>
+
+              <ul className="space-y-3">
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Items Price</div>
+                  <div className="flex justify-between text-black">
+                    <div>Items</div>
                     <div>${itemsPrice}</div>
                   </div>
                 </li>
+
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Tax Price</div>
+                  <div className="flex justify-between text-black">
+                    <div>Tax</div>
                     <div>${taxPrice}</div>
                   </div>
                 </li>
+
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Shipping Price</div>
+                  <div className="flex justify-between text-black">
+                    <div>Shipping</div>
                     <div>${shippingPrice}</div>
                   </div>
                 </li>
+
                 <li>
-                  <div className="mb-2 flex justify-between">
-                    <div>Total Price</div>
+                  <div className="flex justify-between text-black font-bold">
+                    <div>Total</div>
                     <div>${totalPrice}</div>
                   </div>
                 </li>
+
                 {!isPaid && paymentMethod === 'PayPal' && (
                   <li>
                     <PayPalScriptProvider
