@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 export default function CartDetails() {
   const router = useRouter()
-  const { items, itemsPrice, decrease, increase } = useCartService()
+  const { items, itemsPrice, decrease, increase, remove } = useCartService()
 
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
@@ -86,7 +86,10 @@ export default function CartDetails() {
                   alt={'ícone de Lixiera'}
                   width={20}
                   height={20}
+                  className="cursor-pointer"
+                  onClick={() => remove(item)}
                 />
+
                 {/* trash icon */}
               </div>
             ))}
