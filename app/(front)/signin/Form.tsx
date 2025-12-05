@@ -15,7 +15,7 @@ const Form = () => {
   const { data: session } = useSession()
 
   const params = useSearchParams()
-  let callbackUrl = params.get('callbackUrl') || '/'
+  const callbackUrl = params.get('callbackUrl') || '/'
   const router = useRouter()
 
   const {
