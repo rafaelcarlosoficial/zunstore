@@ -26,26 +26,7 @@ export default async function Home() {
           priority
         />
       </div>
-      {/* <div className="bg-orangeDefault flex gap-3 w-screen py-4 ">
-        <Image
-          src="/assets/sponsors/apple.svg"
-          alt="banner"
-          width={110}
-          height={90}
-        />
-        <Image
-          src="/assets/sponsors/JBL.svg"
-          alt="banner"
-          width={110}
-          height={90}
-        />
-        <Image
-          src="/assets/sponsors/Spotify.svg"
-          alt="banner"
-          width={110}
-          height={90}
-        />
-      </div> */}
+
       <h2
         className="text-2xl md:text-3xl py-2 text-black font-custom text-center mb-8 mt-8
 "

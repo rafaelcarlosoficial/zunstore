@@ -22,8 +22,6 @@ export default function MyOrders() {
 
   return (
     <div className="overflow-x-auto text-black">
-      {' '}
-      {/* <-- all text inside will be black */}
       <table className="table text-black border border-gray-300">
         <thead className="text-black bg-gray-100">
           <tr>
@@ -40,8 +38,7 @@ export default function MyOrders() {
             <tr key={order._id} className="text-black hover:bg-gray-50">
               <td>{order._id.substring(20, 24)}</td>
               <td>{order.createdAt.substring(0, 10)}</td>
-              <td>R${order.totalPrice}</td>{' '}
-              {/* changed to R$ for Brazilian Real */}
+              <td>R${order.totalPrice}</td>
               <td>
                 {order.isPaid && order.paidAt
                   ? `${order.paidAt.substring(0, 10)}`

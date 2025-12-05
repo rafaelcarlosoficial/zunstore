@@ -50,11 +50,6 @@ export default function Productitem({ product }: { product: Product }) {
             Comprar
           </button>
         </Link>
-        {/* {product.countInStock !== 0 && (
-          <div className="card-actions justify-center">
-            <AddToCart item={{ ...product, qty: 0 }} />
-          </div>
-        )} */}
       </div>
     </div>
   )

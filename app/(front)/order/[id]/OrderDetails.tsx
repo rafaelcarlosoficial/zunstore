@@ -65,9 +65,7 @@ export default function OrderDetails({
       <h1 className="text-2xl py-4 text-black">Order {orderId}</h1>
 
       <div className="grid md:grid-cols-4 md:gap-5 my-4">
-        {/* LEFT COLUMN */}
         <div className="md:col-span-3">
-          {/* SHIPPING */}
           <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">
               <h2 className="card-title text-orangeDefault">
@@ -92,7 +90,6 @@ export default function OrderDetails({
             </div>
           </div>
 
-          {/* PAYMENT */}
           <div className="card bg-white border border-black rounded-2xl mt-4">
             <div className="card-body">
               <h2 className="card-title text-orangeDefault">
@@ -109,7 +106,6 @@ export default function OrderDetails({
             </div>
           </div>
 
-          {/* ITEMS */}
           <div className="card bg-white border border-black rounded-2xl mt-4">
             <div className="card-body">
               <h2 className="card-title text-orangeDefault">
@@ -154,7 +150,6 @@ export default function OrderDetails({
           </div>
         </div>
 
-        {/* RIGHT COLUMN = SUMMARY */}
         <div>
           <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">

@@ -72,9 +72,7 @@ const Form = () => {
       <CheckoutSteps current={4} />
 
       <div className="grid lg:grid-cols-4 lg:gap-5 my-4">
-        {/* LEFT CONTENT */}
         <div className="overflow-x-auto md:col-span-3">
-          {/* --- SECTION 1 --- */}
           <div className="card bg-white">
             <div className="card-body bg-white border border-black rounded-2xl">
               <div className="flex justify-between">
@@ -111,7 +109,6 @@ const Form = () => {
             </div>
           </div>
 
-          {/* --- SECTION 2 --- */}
           <div className="card bg-white mt-4">
             <div className="card-body bg-white border border-black rounded-2xl ">
               <div className="flex justify-between">
@@ -140,7 +137,6 @@ const Form = () => {
             </div>
           </div>
 
-          {/* --- SECTION 3 --- */}
           <div className="card bg-white mt-4">
             <div className="card-body border-black rounded-2xl border">
               <div className="flex justify-between">
@@ -200,7 +196,6 @@ const Form = () => {
           </div>
         </div>
 
-        {/* RIGHT SUMMARY */}
         <div className="mt-5 lg:mt-0">
           <div className="card bg-white border border-black rounded-2xl">
             <div className="card-body">
