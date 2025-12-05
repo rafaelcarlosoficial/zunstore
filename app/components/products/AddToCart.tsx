@@ -1,17 +1,23 @@
 'use client'
 import useLocalQtyStore from '@/lib/hooks/useLocalQtyStore'
 
-export default function AddToCart() {
+type Props = {
+  onQtyChange?: (qty: number) => void
+}
+
+export default function AddToCart({ onQtyChange }: Props) {
   const { localQty, setLocalQty } = useLocalQtyStore()
 
   const handleIncrease = () => {
     const newQty = localQty + 1
     setLocalQty(newQty)
+    onQtyChange?.(newQty)
   }
 
   const handleDecrease = () => {
     const newQty = localQty > 1 ? localQty - 1 : 1
     setLocalQty(newQty)
+    onQtyChange?.(newQty)
   }
 
   return (

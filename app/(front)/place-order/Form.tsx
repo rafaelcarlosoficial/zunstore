@@ -185,9 +185,7 @@ const Form = () => {
                             width={50}
                             height={50}
                           />
-                          <span className="px-2 text-black">
-                            {item.name} ({item.color} {item.size})
-                          </span>
+                          <span className="px-2 text-black">{item.name}</span>
                         </Link>
                       </td>
                       <td>

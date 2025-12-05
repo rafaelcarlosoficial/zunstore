@@ -1,7 +1,7 @@
 import { auth } from '@/lib/auth'
 import dbConnect from '@/lib/dbConnect'
 import OrderModel from '@/lib/models/OrderModel'
-
+import { paypal } from '@/lib/paypal'
 export const POST = auth(async (...request: any) => {
   const [req, { params }] = request
   if (!req.auth) {
