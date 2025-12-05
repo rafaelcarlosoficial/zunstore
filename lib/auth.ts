@@ -95,7 +95,7 @@ import UserModel from './models/UserModel'
 import bcrypt from 'bcryptjs'
 
 export const config = {
-  //trustHost and secret were added by me, they weren't in the ofcial code. I added them to fix an issue
+  //trustHost was added fo fix a issue
   trustHost: true,
   secret: process.env.AUTH_SECRET,
   providers: [
@@ -134,19 +134,19 @@ export const config = {
     error: '/signin',
   },
   callbacks: {
-    authorized({ request, auth }) {
-      const protectedPaths = [
-        /\/shipping/,
-        /\/payment/,
-        /\/place-order/,
-        /\/profile/,
-        /\/order\/(.*)/,
-        /\/admin/,
-      ]
-      const { pathname } = request.nextUrl
-      if (protectedPaths.some((p) => p.test(pathname))) return !!auth
-      return true
-    },
+    // authorized({ request, auth }) {
+    //   const protectedPaths = [
+    //     /\/shipping/,
+    //     /\/payment/,
+    //     /\/place-order/,
+    //     /\/profile/,
+    //     /\/order\/(.*)/,
+    //     /\/admin/,
+    //   ]
+    //   const { pathname } = request.nextUrl
+    //   if (protectedPaths.some((p) => p.test(pathname))) return !!auth
+    //   return true
+    // },
     async jwt({ user, trigger, session, token }) {
       if (user) {
         token.user = {
