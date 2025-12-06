@@ -56,7 +56,7 @@ const Form = () => {
           </div>
         )}
         {params.get('success') && (
-          <div className="alert text-success">{params.get('success')}</div>
+          <div className="bg-green-50 text-green-800 border border-green-200 rounded-md px-4 py-2 text-lg font-semibold text-center flex align-center justify-center">{params.get('success')}</div>
         )}
         <form onSubmit={handleSubmit(formSubmit)}>
           <div className="my-2">

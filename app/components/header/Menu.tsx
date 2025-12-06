@@ -44,7 +44,7 @@ const Menu = () => {
             <div className="dropdown dropdown-bottom dropdown-end">
               <label
                 tabIndex={0}
-                className="btn btn-ghost rounded-btn flex items-center gap-1"
+                className="btn btn-ghost rounded-btn flex items-center gap-1 text-black hover:text-white"
               >
                 {session.user.name}
                 <svg
@@ -64,13 +64,10 @@ const Menu = () => {
               </label>
               <ul
                 tabIndex={0}
-                className="menu dropdown-content z-[1] p-2 shadow bg-base-300 rounded-box w-52"
+                className="menu dropdown-content z-[1] p-2 shadow bg-black rounded-box w-52"
               >
                 <li>
                   <Link href="/order-history">Order history</Link>
-                </li>
-                <li>
-                  <Link href="/profile">Profile</Link>
                 </li>
                 <li>
                   <button type="button" onClick={signoutHandler}>
