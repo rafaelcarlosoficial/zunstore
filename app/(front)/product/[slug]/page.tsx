@@ -44,7 +44,7 @@ export default async function ProductDetails({
       <div className="flex flex-col justify-around lg:flex-row ">
         <div>
           <div className="lg: flex items-center align-center justify-center">
-            <ImageDetails product={convertDocToObj(product)} />
+            {/* <ImageDetails product={convertDocToObj(product)} /> */}
           </div>
         </div>
 
@@ -55,12 +55,12 @@ export default async function ProductDetails({
             </h2>
 
             <div className="flex gap-2">
-              <Image
+              {/* <Image
                 src="/assets/house-Icon.svg"
                 alt="house icon"
                 width={25}
                 height={25}
-              />
+              /> */}
               <p className="text-black text-xl">
                 Vendido e entregue por{' '}
                 <span className="font-semibold text-orangeDefault ">
