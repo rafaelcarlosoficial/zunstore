@@ -42,20 +42,13 @@ export const POST = auth(async (req: any) => {
       'price'
     )
 
-    // dbOrderItems: map client items to server-side items with verified prices
-    const dbOrderItems = payload.items.map((item: any) => {
-      const dbProd = dbProductPrices.find(
-        (p: any) => p._id.toString() === item._id?.toString()
-      )
-      return {
-        product: item._id,
-        name: item.name,
-        slug: item.slug,
-        qty: item.qty,
-        image: item.image,
-        price: dbProd ? dbProd.price : item.price,
-      }
-    })
+    //dbOrderItems to map the order items with correct prices
+    const dbOrderItems = payload.items.map((x: { _id: string }) => ({
+      ...x,
+      product: x._id,
+      price: dbProductPrices.find((x) => x._id === x._id).price,
+      _id: undefined,
+    }))
 
     const { itemsPrice, taxPrice, shippingPrice, totalPrice } =
       calcPrices(dbOrderItems)
