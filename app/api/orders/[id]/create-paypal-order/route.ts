@@ -3,7 +3,8 @@ import dbConnect from '@/lib/dbConnect'
 import OrderModel from '@/lib/models/OrderModel'
 import { paypal } from '@/lib/paypal'
 export const POST = auth(async (...request: any) => {
-  const [req, { params }] = request
+  const [req, { params: paramsPromise }] = request
+  const params = await paramsPromise
   if (!req.auth) {
     return Response.json(
       { message: 'unauthorized' },
