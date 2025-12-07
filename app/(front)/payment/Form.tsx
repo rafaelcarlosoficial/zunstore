@@ -21,15 +21,6 @@ const Form = () => {
     setSelectedPaymentMethod(paymentMethod || 'PayPal')
   }, [paymentMethod, router, shippingAddress.address])
 
-  //   useEffect(() => {
-  //     if (!shippingAddress.address) {
-  //       router.push('/shipping')
-  //       return
-  //     }
-  //     setSelectedPaymentMethod(paymentMethod || 'PayPal')
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, [])
-
   return (
     <div>
       <CheckoutSteps current={2} />

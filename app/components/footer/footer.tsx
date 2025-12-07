@@ -32,7 +32,7 @@ const Footer = () => {
         </Link>
         <Link href="/">
           <Image
-            src="/assets/pay-method/visa.svg"
+            src="/assets/pay-method/Visa.svg"
             alt="Visa"
             width={49}
             height={28}
@@ -66,7 +66,11 @@ const Footer = () => {
       <div>
         <ul className="flex gap-[25px]">
           <li>
-            <Link href="/">
+            <Link
+              href="https://github.com/rafaelcarlosoficial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/assets/socialMedia/Twitter.svg"
                 alt="Twitter"
@@ -76,7 +80,11 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link
+              href="https://github.com/rafaelcarlosoficial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/assets/socialMedia/Facebook.svg"
                 alt="Facebook"
@@ -86,7 +94,11 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link
+              href="https://github.com/rafaelcarlosoficial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/assets/socialMedia/Instagram.svg"
                 alt="Instagram"
@@ -96,9 +108,13 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link
+              href="https://github.com/rafaelcarlosoficial"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
-                src="/assets/socialMedia/github.svg"
+                src="/assets/socialMedia/Github.svg"
                 alt="GitHub"
                 width={48}
                 height={48}

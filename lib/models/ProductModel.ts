@@ -42,7 +42,6 @@ export type Product = {
   price: number
   installments: number
   brand: string
-  //Is category necessary here?
   category?: string
   rating: number
   numReviews: number

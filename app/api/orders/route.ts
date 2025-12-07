@@ -34,7 +34,6 @@ export const POST = auth(async (req: any) => {
     const payload = await req.json()
     await dbConnect()
 
-    //DbProductPrices to ensure prices are correct and not manipulated from the client side
     const dbProductPrices = await ProductModel.find(
       {
         _id: { $in: payload.items.map((x: { _id: string }) => x._id) },
@@ -42,7 +41,6 @@ export const POST = auth(async (req: any) => {
       'price'
     )
 
-    //dbOrderItems to map the order items with correct prices
     const dbOrderItems = payload.items.map((x: { _id: string }) => ({
       ...x,
       product: x._id,
